@@ -1,0 +1,583 @@
+/* ------------------------------------------------------
+  Stylesheet Guide - Lisa Leung
+  ------------------------------------------------------
+
+    1. Global
+        1.1. Fonts
+            1.1.1. Header font - Lato
+            1.1.2. Text font - Lato
+        1.2. General styles
+        1.3. Color scheme
+        1.4. Typography
+        1.5. Custom class
+        1.6. Icons class   
+    2. Header
+        2.1. Header text
+    3. Sections
+        3.1 Section header
+        3.2. Home section
+            3.2.1. Home - hero
+            3.2.2. Home - feature recipes
+            3.2.3  Home - feature video
+            3.2.4  Home - new meal plan
+            3.2.5  Home - feature article
+        3.3. Recipe Index Section
+            3.3.1. About - top
+            3.3.2. About - mid
+            3.3.3. About - bot
+        3.4. Explore section
+            3.4.1. Intro section
+            3.4.2. Table section
+        3.5. Contacts section
+            3.5.1. Contact details
+            3.5.2. Contact form
+        3.6. Schedule section
+            3.5.1. Schedule - quote
+            3.5.2. Schedule - text
+    4. Footer
+    5. Lists
+    6. Tables
+    7. Forms
+    8. Media queries
+
+------------------------------------------------------ */
+
+/* ------------------------------------------------------
+    1. Global
+------------------------------------------------------ */
+
+    /* ------------------------------------------------------
+        1.1. Fonts
+    ------------------------------------------------------ */
+
+        /* ------------------------------------------------------
+            1.1.1. Header font - Lato 700px Bold
+            1.1.2. Text font - Lato 400px Regular +  
+            ------------------------------------------------------ */
+            @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+        /* ------------------------------------------------------
+        ------------------------------------------------------ */
+        /* ------------------------------------------------------
+        1.2. General styles
+    ------------------------------------------------------ */
+    body {
+        background-color: #717C85; 
+        color: #323232;
+        font-family: 'Lato', sans-serif;        
+        font-size: 18px;
+        text-align: left;
+    }
+    #page {
+        background-color: #FAFAFA;
+        margin: 0px auto 10px auto;
+        width: 95%;
+        vertical-align: baseline;
+    }
+    
+    .center-text {
+        text-align: center;
+    }
+
+    p {
+        margin-left: 8px;
+        margin-right: 8px;
+        margin-top: 0px;
+        text-align: left;
+    }
+    [class ^= "feature-section"] {
+        margin: 1% 2.25%;
+        padding: 20px;
+        height: 500px;
+        align-content: center;
+    }
+    [class $= "color1"] {
+        background-color:#94ffb8;
+    }
+    [class $= "color2"] {
+        background-color: #a1b5ff;
+    }
+    [id ^= "feature-one article"] {
+        width: 37.5%; /*12.5% = 1 col; 12.5 * 3 = 37.5 + 3 (1% gutters)*/
+        display: inline-block;
+        
+    }
+    [id ^= "feature-one visual"] {
+        width: 50%; /*12.5% = 1 col; 12.5 * 4 = 50 + 3 (1% gutters)*/
+        display: inline-block;
+        position: relative;
+
+    }
+    [id ~= "left"] {
+        float: left;
+        margin-left: 1%;
+        border:0;
+        
+    }
+    [id ~= "right"] {
+        float: right;
+        margin-right: 1%;
+        right: 155px;
+    }
+    
+/* ------------------------------------------------------
+    2. Header
+------------------------------------------------------ */
+ /* ------------------------------------------------------
+        2.1. Header Text
+    ------------------------------------------------------ */
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Lato', sans-serif;        
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+    h2{
+        font-size:42px;
+        font-weight: bold;
+    }
+    h3{
+        font-size:30px;
+        font-weight: bold;
+    }
+    h4{
+        font-size:24px;
+        font-weight: bold;
+    }
+    h5{
+        font-size:20px;
+        font-weight: bold;
+    }
+    h6{
+        font-size:18px;
+        font-weight: bold;
+    }
+   
+/* ------------------------------------------------------
+    3. Sections
+------------------------------------------------------ */
+
+    /* ------------------------------------------------------
+        3.1. Section Header
+    ------------------------------------------------------ */
+    /* ------------------------------------------------------
+            3.1.1. Nav Section
+    ------------------------------------------------------ */
+    /* ------------------------------------------------------
+            3.1.1.1 Top Nav
+    ------------------------------------------------------ */
+         /*resolves the menu-holder being covered by the main photo*/
+         .header {
+            
+            float: right;
+            height: 100%;
+            max-width: 100%;
+            overflow: auto;
+            position: fixed;
+            right: -100%;
+            text-align: center;
+            top: 50px;
+            transition: right .3s ease;
+            width: 100%;
+            z-index: 99;
+        }
+        nav {
+            padding-bottom: 20px;
+            padding-top: 50px;
+            text-align: right;
+            font-size: 32px;
+            background-color: #1C448E;
+            color: #FAFAFA;
+        }
+        #nav-item {
+            padding-left: 60px;
+            padding-right: 80px;
+        }
+        
+        .current {
+            text-decoration: underline;
+            padding: 5px 8px;
+        }
+        
+   
+    /* ------------------------------------------------------
+        3.2. Main Index Section
+    ------------------------------------------------------ */
+        #hero-intro {
+            background-color: rgba(34, 42, 70, 0.7);
+            width: 100%;
+            position: relative;
+            top: 35%;
+
+            margin: 0px;
+            /*padding on all sides misaligns the text background with right overhand*/
+            padding: 50px 0px;
+            font-size: 100px;
+            color: #98e8ff;
+        }
+        #hero-image {
+            text-align: center;
+    
+            width: 100%;
+            height: 900px;
+            background-image: url("../images/h-recipe main.jpg");
+            /*solution to misaligned and missized background image;
+               only showed a portion with its positioning placed absolutely*/
+            background-size: cover;
+        }
+
+    /* ------------------------------------------------------
+        3.3. Recipe Index Section
+    ------------------------------------------------------ */
+        #recipe-intro {
+            background-color: rgba(0,0,0,0.25);
+            width: 93%;
+            position: relative;
+            top: 35%;
+            margin: 0px;
+            
+            /*padding on all sides misaligns the text background with right overhand*/
+            padding: 50px 0px;
+            padding-left:100px;
+            font-size: 100px;
+            text-align: left;
+            color: #e8fff0;
+        }
+        .recipe-right{
+            text-align: center;
+            margin-left: 15%;
+            width: 85%;
+            height: 900px;
+            background-image: url("../images/h-recipe main.jpg");
+            /*solution to misaligned and missized background image;
+               only showed a portion with its positioning placed absolutely*/
+            background-size: cover;
+        }
+		/* ------------------------------------------------------
+           3.3.1 fig-display
+        ------------------------------------------------------ */
+        [id ^= "display"] {
+            margin-left: 15%;
+        }
+        .seven-gutters-fig-display {
+            display: inline-block;
+            margin: 0px;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            padding-left: 8px; 
+            text-align: center;
+        }
+        .img-display {
+            margin: auto;
+            width: 190px;
+            height: auto;
+            
+        }
+        .figc{
+            font-style: normal;
+            width: 180px;
+            text-align: center;
+            
+        }
+            
+        /* ------------------------------------------------------
+           3.3.2 About - mid
+        ------------------------------------------------------ */
+
+         /* ------------------------------------------------------
+           3.3.2 About - bot
+        ------------------------------------------------------ */
+
+    /* ------------------------------------------------------
+        3.4. Individual Recipe Section
+    ------------------------------------------------------ */
+        
+		/* ------------------------------------------------------
+           3.2.1 Intro Section
+        ------------------------------------------------------ */
+        .sidebar-right {
+            width: 85%;
+            margin-left: 15%;
+        }
+        #recipe-video{
+            width: 97.5%;
+        }
+        #left-text {
+            width: 25%;
+            margin-left: 20%;
+            display: inline-block;
+            vertical-align: text-bottom;
+
+        }
+        #contain-right-image {
+            display: inline-block;
+            width: 35%;
+           
+        }
+        #right-image {
+            width: 100%;
+        }
+        [class *= "recipe-text"] {
+            width: 50%;
+            margin-left:20%;
+            padding: 20px;
+        }
+        
+/* ------------------------------------------------------
+    4. Footer
+------------------------------------------------------ */
+    footer {
+        /*
+        center fix: 
+        centered text by applying the center-text class
+        */
+        
+        margin-top: 50px;
+        padding: 50px 0px 25px; /*top sides bottom*/
+        background-color:#94ffb8;
+    }
+    footer a {
+        text-decoration: none; /*gets rid of underline from links*/
+        font-family: 'Josefin Sans', 'sans serif';
+        font-size: 24px;
+        line-height: 15px;
+        color: #1c3941;
+        display: block;
+    }
+
+    footer a:hover {
+        color: #3a5cd7;
+    }
+    .directory {
+        column-count: 2;
+        column-gap: 100px;
+        float: right;
+        margin-right: 300px;
+        margin-top: 50px;
+        text-decoration: none;
+    }
+    [class ~= "copyright"] {
+        margin-top: 50px;
+    }
+    
+
+/* ------------------------------------------------------
+    5. Lists
+------------------------------------------------------ */
+    li {
+        line-height: 1.6em;
+        list-style-image: url("images/icon-plus.png");
+    }
+    ol {
+        margin-left: 200px;
+    }
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 5px;
+    }
+    
+        
+    ul li {
+        display: inline;
+        padding: 10px;
+        
+    }
+        
+    ul li a, 
+    ul a:hover,
+    ul li a:focus, 
+    ul li a:active {
+        border: none;
+        color: inherit;
+        text-decoration: none;
+    }
+    ul li a:active {
+        color: #e8fff0;
+    }
+    ul a:hover {
+        text-decoration: underline;
+        text-underline-offset: 10px;
+    }
+
+/* ------------------------------------------------------
+    8. Media Queries 
+------------------------------------------------------ */
+
+ /* ------------------------------------------------------
+        8.1. Image Queries
+    ------------------------------------------------------ */
+       .logo {
+            width: 20%;
+            float: left;
+            padding-top: 1%;
+            margin-left: 1%;
+            z-index: 99;
+       }
+       .logo-large {
+           width: 25%;
+           
+           margin-left: 2.5%;
+       }
+       .video, .span-four {
+           width: 100%;
+       }
+       
+       #hero {
+           width: 100%;
+           height: 1000px;
+       }
+        .seven-no-gutters {
+            width: 14%;
+            margin: 0px;
+        }
+        .seven-gutters {
+            width: 13%;
+            height: 350px;
+            padding: 0.2%;
+            margin: 10px;
+        }
+        .four-gutters {
+            /*centers content*/
+            width: 22.7%;
+            padding: 0.75%;
+            margin: 0px;
+        }
+        [class ~= "leftmost-image"] {
+            margin-left: 0.5%;
+        }
+        [class ~= "centered-image"] {
+            display: inline-block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .img-1 {
+            margin: auto;
+            width: 100%;
+        }
+        .img-2 {
+            height: 510px;
+            margin: auto;
+            width: 300px;
+            
+        }
+        .img-3 {
+            display: inline-block;
+            height: 300px;
+            margin: auto;
+            padding: 5px;
+            width: 425px;
+        }
+        
+        /*footer images*/
+        #icon {
+            display: block;
+            margin: 5px;
+        
+        }
+        .smlogo{
+            height: 21.3px;
+            margin: auto;
+            width: 17px;
+        }
+        .clogo {
+            height: 24px;
+            margin: auto;
+            width: 24px;
+        }
+        figure {
+            margin-top: 0px;
+        }
+        .fig-1 {
+            /*
+            wanted to make hero image align with dishes
+            */
+            margin-left: 8px;
+            margin-right: 8px;
+        }
+        
+        .fig-2 {
+            /*display fix: 
+            makes it possible to align all the images inline
+            default display: block (stacked)
+            display inline makes them in-line wrt to the figcaption
+            */
+            display: inline-block;
+            margin: 0px;
+            /*margin fix:
+            takes out figure defaults:
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 40px;
+            margin-inline-end: 40px;
+            */
+            margin-bottom: 20px;
+            margin-top: 20px;
+            /*padding fix: 
+            can't do padding all around or the 
+            sum of the right will make it 10 px 
+            and provide unwanted whitespace
+            
+            specifically 8 so the whitespace on the right isn't 
+            noticeable*/
+            padding-left: 8px; 
+            text-align: center;
+        }
+        figcaption {
+            font-style: italic;
+            text-align: right; 
+        }
+       .figc-2 {
+           /*
+            width fix: 
+            takes care of overhang from figcaption
+            */
+            width: 300px;
+       }
+        
+/* ------------------------------------------------------
+        8.2. Video Queries
+    ------------------------------------------------------ */
+        video{
+            width: 940px;
+        }
+    
+/* ------------------------------------------------------
+    9. Attributes
+------------------------------------------------------ */
+/* ------------------------------------------------------
+        9.1. Classes
+    ------------------------------------------------------ */
+/* ------------------------------------------------------
+             9.1.1 General Classes
+    ------------------------------------------------------ */
+       
+/* ------------------------------------------------------
+            9.1.2 Section-Specific Classes
+------------------------------------------------------ */
+        .center-2{
+            margin: auto;
+            padding-bottom: 15px;
+            padding-top: 5px;
+            width: 940px;
+        }
+        .center-3{
+            margin: 0 0;
+            width: 300px;
+        }
+        .center-2>h1, .center-2>p{
+            text-align: center;
+        }
+        
+    /* ------------------------------------------------------
+             9.1.1 General Classes
+    ------------------------------------------------------ */
+    a :hover {
+        color: #Eaefff;
+    }
+    a {
+        text-decoration: None;
+    }
+        
+/* ------------------------------------------------------
+        9.2. IDs
+    ------------------------------------------------------ */
+       
