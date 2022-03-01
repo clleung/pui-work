@@ -16,15 +16,7 @@
     3. Sections
         3.1 Section header
         3.2. Home section
-            3.2.1. Home - hero
-            3.2.2. Home - feature recipes
-            3.2.3  Home - feature video
-            3.2.4  Home - new meal plan
-            3.2.5  Home - feature article
-        3.3. Recipe Index Section
-            3.3.1. About - top
-            3.3.2. About - mid
-            3.3.3. About - bot
+        3.3. Course Schedule Section
         3.4. Explore section
             3.4.1. Intro section
             3.4.2. Table section
@@ -61,7 +53,7 @@
         1.2. General styles
     ------------------------------------------------------ */
     body {
-        background-color: #717C85; 
+        background-color: #E4E5E7; 
         color: #323232;
         font-family: 'Lato', sans-serif;        
         font-size: 18px;
@@ -84,6 +76,12 @@
         margin-top: 0px;
         text-align: left;
     }
+    .align-left {
+        float:left;
+    }
+    .align-right {
+        float:right;
+    }
     [class ^= "feature-section"] {
         margin: 1% 2.25%;
         padding: 20px;
@@ -91,11 +89,29 @@
         align-content: center;
     }
     [class $= "color1"] {
-        background-color:#94ffb8;
+        background-color: #E6ECF8;
     }
     [class $= "color2"] {
-        background-color: #a1b5ff;
+        background-color: #F2F2F3;
     }
+    [class ~= "left-space"] {
+       
+        margin-left: 2%;
+        border:0;
+        
+    }
+    [class ~= "right-space"] {
+        margin-right: 2%;
+        right: 155px;
+    }
+    /* [class ~= "align-left"] {
+        float: left;
+
+    }
+    [class ~= "align-right"] {
+        float: right; */
+
+    /* } */
     [id ^= "feature-one article"] {
         width: 37.5%; /*12.5% = 1 col; 12.5 * 3 = 37.5 + 3 (1% gutters)*/
         display: inline-block;
@@ -107,17 +123,7 @@
         position: relative;
 
     }
-    [id ~= "left"] {
-        float: left;
-        margin-left: 1%;
-        border:0;
-        
-    }
-    [id ~= "right"] {
-        float: right;
-        margin-right: 1%;
-        right: 155px;
-    }
+    
     
 /* ------------------------------------------------------
     2. Header
@@ -194,13 +200,39 @@
         
         .current {
             text-decoration: underline;
-            padding: 5px 8px;
+            text-underline-offset: 10px;
         }
         
    
     /* ------------------------------------------------------
-        3.2. Main Index Section
+        3.2. Home Section
     ------------------------------------------------------ */
+        .spring-22-courses {
+            display: block;
+            margin: auto;
+
+            background-color: #E4E5E6;
+            height: 100%;
+            width: 70%;
+        }
+        .course-color-background {
+            /* apply with selectors */
+            /* background-color: #E6ECF8; */
+            width: 90%;
+            height: 180px;
+            margin: auto;
+            /* from w3schools https://www.w3schools.com/css/css3_shadows_box.asp */
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+        .individual-course-block {
+            clear: both; /*enables texts float left and right*/
+            margin: auto;
+            width: 90%;            
+
+        }
+        .individual-course {
+            display: block;
+        }
         #hero-intro {
             background-color: rgba(34, 42, 70, 0.7);
             width: 100%;
@@ -223,61 +255,130 @@
                only showed a portion with its positioning placed absolutely*/
             background-size: cover;
         }
-
+        .img-1 {
+            display: inline-block;
+           
+            margin: auto;
+            padding: 5px;
+            width: 425px;
+        }
+        
     /* ------------------------------------------------------
-        3.3. Recipe Index Section
+        3.3. Course Schedule
     ------------------------------------------------------ */
-        #recipe-intro {
-            background-color: rgba(0,0,0,0.25);
-            width: 93%;
-            position: relative;
-            top: 35%;
-            margin: 0px;
-            
-            /*padding on all sides misaligns the text background with right overhand*/
-            padding: 50px 0px;
-            padding-left:100px;
-            font-size: 100px;
+        .browse-spring-22-courses {
+            display: block;
+            margin: auto;
+            width: 100%;
+            height: 100%;
+            background-color:#FAFAFA;
+        }
+        .browse-filters {
+            display: block;
+            margin: auto;
+            width: 100%;
+            height: 100%;
+            background-color:#FAFAFA;
+            overflow: auto;
+        }
+        .search-container {
+            margin: 10px 500px;
+        }
+        /* w3schools dropdown and button */
+        .dropdown {
+            float: left;
+            overflow: hidden;
+            position: absolute;
+            display: block;
+            visibility: visible;
+            z-index: 500;
+          }
+          
+          .dropdown .dropbtn {
+            font-size: 16px;  
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 16px;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+          }
+          
+          .navbar a:hover, .dropdown:hover .dropbtn {
+            background-color: red;
+          }
+          
+          .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+          }
+          
+          .dropdown-content a {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
             text-align: left;
-            color: #e8fff0;
-        }
-        .recipe-right{
+          }
+          
+          .dropdown-content a:hover {
+            background-color: #ddd;
+          }
+          
+          .dropdown:hover .dropdown-content {
+            display: block;
+          }
+          .button {
+            border: none;
+            color: white;
+            padding: 16px 32px;
             text-align: center;
-            margin-left: 15%;
-            width: 85%;
-            height: 900px;
-            background-image: url("../images/h-recipe main.jpg");
-            /*solution to misaligned and missized background image;
-               only showed a portion with its positioning placed absolutely*/
-            background-size: cover;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 20px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            background-color: #717C8E;
+            
+            color: #323232;
+            font-family: 'Lato', sans-serif;        
+            font-size: 18px;
+          }
+          
+          
+          .button:hover {
+            background-color: #FAFAFA;
+          }
+          
+          .img {
+            display: inline-block;
+            height: 300px;
+            margin: auto;
+            padding: 5px;
+            width: 425px;
         }
+        
 		/* ------------------------------------------------------
            3.3.1 fig-display
         ------------------------------------------------------ */
         [id ^= "display"] {
             margin-left: 15%;
         }
-        .seven-gutters-fig-display {
-            display: inline-block;
-            margin: 0px;
-            margin-bottom: 20px;
-            margin-top: 20px;
-            padding-left: 8px; 
-            text-align: center;
-        }
+       
         .img-display {
             margin: auto;
             width: 190px;
             height: auto;
             
         }
-        .figc{
-            font-style: normal;
-            width: 180px;
-            text-align: center;
-            
-        }
-            
+        
         /* ------------------------------------------------------
            3.3.2 About - mid
         ------------------------------------------------------ */
@@ -291,36 +392,80 @@
     ------------------------------------------------------ */
         
 		/* ------------------------------------------------------
-           3.2.1 Intro Section
+           3.2.1 Table Section
         ------------------------------------------------------ */
-        .sidebar-right {
-            width: 85%;
-            margin-left: 15%;
-        }
-        #recipe-video{
-            width: 97.5%;
-        }
-        #left-text {
-            width: 25%;
-            margin-left: 20%;
-            display: inline-block;
-            vertical-align: text-bottom;
-
-        }
-        #contain-right-image {
-            display: inline-block;
-            width: 35%;
-           
-        }
-        #right-image {
-            width: 100%;
-        }
-        [class *= "recipe-text"] {
-            width: 50%;
-            margin-left:20%;
-            padding: 20px;
-        }
         
+        table {
+            border-spacing: 0px;
+            margin: auto; 
+            width: 90%;
+        }
+        th, td {
+            border-spacing: 0px;
+            font-size: 90%;
+            margin: 0px;
+            padding: 5px 30px 5px 10px;
+            border-bottom: 1px solid #FAFAFA;
+            border-right: 1px solid #FAFAFA;
+            border-top: 1px solid #FAFAFA;
+            text-align: left;
+        }
+        tr.head th {
+            border-bottom: 2px solid #FAFAFA;
+            border-right: 1px solid #FAFAFA;
+            border-top: 1px solid #FAFAFA;
+            color: #FAFAFA;
+            letter-spacing: 0.15em;
+            text-align: center;
+        }
+        th {
+            background-color:#5585DD;
+            color: #FAFAFA;
+        }
+        td {
+            background-color:#F2F2F3;
+        }
+       
+        .tdlink {
+            color: #0E34A0;
+            text-decoration: none;
+        }
+        .tdlink:hover {
+            color:#ECF1FD
+        }
+        tr.even td{
+            background-color: #F2F2F3;
+        }
+        tr.odd td {
+            background-color: #E6ECF8;
+        }
+        tr.even td, tr.odd td {
+            text-decoration: none;
+        }
+        tr.head th:first-child {
+            /* WebKit is a browser engine used in Apple's Safari browser, Amazon 
+                Kindle e-book reader, BlackBerry Browser in OS 6 and above.
+    
+                Not all CSS3 properties work well in all browsers. In a way to ensure that web pages display as expected in their browsers, vendors like Mozilla and Webkit developed their own browser-compatible properties. With CSS3, many compatibility issues are now resolved.
+                However, it is not unusual to still see these properties used in stylesheets. */
+            /*won't sort in case of*/
+            /* Webkit property*/
+            -webkit-border-top-left-radius: 5px;
+    
+            /* Mozilla property*/
+            -moz-border-radius-topleft: 5px;
+    
+            /* CSS3 property*/
+            border-top-left-radius: 5px;
+    
+            /* More on border-radius property: https://www.the-art-of-web.com/css/border-radius/ */
+        }
+        tr.head th:last-child {
+            -webkit-border-top-right-radius: 5px;
+            -moz-border-radius-topright: 5px;
+            border-top-right-radius: 5px;}
+
+
 /* ------------------------------------------------------
     4. Footer
 ------------------------------------------------------ */
@@ -332,7 +477,8 @@
         
         margin-top: 50px;
         padding: 50px 0px 25px; /*top sides bottom*/
-        background-color:#94ffb8;
+        background-color:#1C448E;
+        color: #FAFAFA;
     }
     footer a {
         text-decoration: none; /*gets rid of underline from links*/
@@ -471,8 +617,14 @@
         #icon {
             display: block;
             margin: 5px;
-        
+            position: static;
+            width: 24px;
+            height: 24px;
+            left: 0px;
+            top: 0px;
+
         }
+        
         .smlogo{
             height: 21.3px;
             margin: auto;
@@ -575,6 +727,7 @@
     }
     a {
         text-decoration: None;
+        color: #5585DD;
     }
         
 /* ------------------------------------------------------
