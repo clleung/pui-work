@@ -24,17 +24,17 @@ function ready() {
         button.addEventListener('click', addToCartClicked)
     }
 
-    document.getElementsByClassName('mc-button')[0].addEventListener('click', purchaseClicked)
+    // document.getElementsByClassName('mc-button add')[0].addEventListener('click', addToCartClicked)
 }
 // current-spring-22-courses
-function purchaseClicked() {
-    // alert('Just made an adjustment to your Spring 2022 course schedule')
-    var cartItems = document.getElementsByClassName('course')[0]
-    while (cartItems.hasChildNodes()) {
-        cartItems.removeChild(cartItems.firstChild)
-    }
-    // updateCartTotal()
-}
+// function purchaseClicked() {
+//     // alert('Just made an adjustment to your Spring 2022 course schedule')
+//     var cartItems = document.getElementsByClassName('course')[0]
+//     while (cartItems.hasChildNodes()) {
+//         cartItems.removeChild(cartItems.firstChild)
+//     }
+//     // updateCartTotal()
+// }
 
 function removeCartItem(event) {
     var buttonClicked = event.target
@@ -60,14 +60,21 @@ function addToCartClicked(event) {
     // title -> cname, price->cnum
     var cname = shopItem.getElementsByClassName('course-name')[0].innerText
     var cnum = shopItem.getElementsByClassName('course-number')[0].innerText
-    addItemToCart(cname, cnum)
+    var cloc = shopItem.getElementsByClassName('course-location')[0].innerText
+    var cprof = shopItem.getElementsByClassName('course-prof')[0].innerText
+    var cu = shopItem.getElementsByClassName('course-units')[0].innerText
+    var cfce = shopItem.getElementsByClassName('course-fces')[0].innerText
+    var cd = shopItem.getElementsByClassName('course-description')[0].innerText
+
+    addItemToCart(cname, cnum, cloc, cprof, cu, cfce, cd)
     // updateCartTotal()
 }
 
-function addItemToCart(cname, cnum) {
-    var cartRow = document.createElement('div')
-    cartRow.classList.add('course')
-    var cartItems = document.getElementsByClassName('cname')[0]
+function addItemToCart(cname, cnum, cloc, cprof, cu, cfce, cd) {
+    var cartRow = document.getElementsByClassName('current-spring-22-courses')[0]
+    // cartRow.classList.add('course')
+    // var cartItems = document.getElementsByClassName('waitlisted-spring-22-courses')[0]
+   
     // var cartItemNames = cartItems.getElementsByClassName('cname')
     // for (var i = 0; i < cartItemNames.length; i++) {
     //     if (cartItemNames[i].innerText == cname) {
@@ -75,27 +82,26 @@ function addItemToCart(cname, cnum) {
     //         return
     //     }
     // }
-    var cartRowContents = `
-    <div class = "course">
+    var cartRowContents = `<div class = "course">
     <table>
         <tbody>
             <tr>
-                <td class = "course-name"><a href = "05-123.html">${cname}</a></td>
-                <td class = "course-number">${cnum}</td>
-                <td>407 Craig</td>
-                <td>Professor Melon</td>
-                <td>10</td>
-                <td>15</td>
-                <td>Learn how to make user interfaces <br> <a href = "05-123.html">Read More</a></td>
-                <td><button class="mc-button drop">Drop</button><button class="mc-button button">Switch</button></td>
-                <td>Yes</td>
+            <td class = "course-name"><a href = "05-123.html">${cname}</a></td>
+            <td class = "course-number">${cnum}</td>
+            <td class = "course-location">${cloc}</td>
+            <td class = "course-prof">${cprof}</td>
+            <td class = "course-units">${cu}</td>
+            <td class = "course-fces">${cfce}</td>
+            <td class = "course-description">${cd}<br> <a href = "05-123.html">Read More</a></td>
+            <td><button class="mc-button add">Add</button><button class="mc-button drop">Drop</button></td>
+            <td>Yes</td>
             </tr>
         </tbody>
     </table>
-</div>
-    `
-    cartRow.innerHTML = cartRowContents
-    cartItems.append(cartRow)
+</div>`
+    cartRow.innerHTML += cartRowContents
+    // cartItems.append(cartRowContents)
+    cartRow.getElementsByClassName('mc-button add')[0].addEventListener('click', addToCartClicked)
     cartRow.getElementsByClassName('mc-button drop')[0].addEventListener('click', removeCartItem)
     // cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged)
 }
