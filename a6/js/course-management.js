@@ -73,15 +73,14 @@ function addToCartClicked(event) {
 function addItemToCart(cname, cnum, cloc, cprof, cu, cfce, cd) {
     var cartRow = document.getElementsByClassName('current-spring-22-courses')[0]
     // cartRow.classList.add('course')
-    // var cartItems = document.getElementsByClassName('waitlisted-spring-22-courses')[0]
-   
-    // var cartItemNames = cartItems.getElementsByClassName('cname')
-    // for (var i = 0; i < cartItemNames.length; i++) {
-    //     if (cartItemNames[i].innerText == cname) {
-    //         alert('This item is already added to the cart')
-    //         return
-    //     }
-    // }
+    var cartItems = document.getElementsByClassName('course')[0]
+    var cartItemNames = cartItems.getElementsByClassName('cname')
+    for (var i = 0; i < cartItemNames.length; i++) {
+        if (cartItemNames[i].innerText == cname) {
+            alert('This item is already added to the cart')
+            return
+        }
+    }
     var cartRowContents = `<div class = "course">
     <table>
         <tbody>
